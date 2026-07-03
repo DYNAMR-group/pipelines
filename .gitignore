@@ -1,0 +1,10 @@
+work/
+.nextflow/
+.nextflow.log*
+**/work/
+**/.nextflow/
+**/results/
+ena_downloads/
+fastqc/
+.DS_Store
+**/.DS_Store
