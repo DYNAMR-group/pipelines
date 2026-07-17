@@ -1,6 +1,6 @@
 # DYNAMR pipelines
 
-Nextflow pipelines maintained by the [DYNAMR](https://github.com/DYNAMR-MLW26)
+Nextflow pipelines maintained by the [DYNAMR](https://github.com/DYNAMR-group/dynamr)
 group at the Malawi Liverpool Wellcome Research Programme. One folder per
 pipeline.
 
