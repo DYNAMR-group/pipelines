@@ -1,0 +1,9 @@
+*.Rproj
+files/
+pathogenwatch/
+mobsuite_reports/
+metadata_files/
+IQtree2/
+amrfinder/
+abricate/
+.Rproj.user
