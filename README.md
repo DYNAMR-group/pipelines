@@ -9,6 +9,7 @@ pipeline.
 | Pipeline | Description |
 |----------|-------------|
 | [`ena-fetch`](ena-fetch) | Download FASTQ reads from ENA by accession, verify checksums, optional FastQC/MultiQC |
+| [`v-cholera-pipeline`](v_cholera_pipeline) | Run illumina read data |
 
 ## Adding a pipeline
 
