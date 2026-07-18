@@ -1,0 +1,2 @@
+# *Vibrio Cholerae* Analysis Bioinformatics Pipeline
+This pipeline is intended to provide an end-to-end bioinformatics workflow for the analysis of *Vibrio cholerae* genomes. It supports illumina reads data from data acquistion to phylogenetics.
