@@ -19,7 +19,6 @@ Any accession type that maps to `read_run` entries in ENA.
 ## Requirements
 
 - Nextflow ≥ 23.04
-- Java 17+
 - `fastqc`, `multiqc` (only needed if using `--fastqc`)
 
 
