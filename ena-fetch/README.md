@@ -5,7 +5,7 @@ Nextflow pipeline to download sequencing reads from the
 verify checksums, and report sequencing yield. Optionally runs FastQC and
 MultiQC on the downloaded reads.
 
-Part of the [DYNAMR](https://github.com/DYNAMR-MLW26) pipeline collection at the
+Part of the [DYNAMR](https://github.com/DYNAMR-group) pipeline collection at the
 Malawi Liverpool Wellcome Research Programme.
 
 ---
@@ -20,7 +20,6 @@ Any accession type that maps to `read_run` entries in ENA.
 
 - Nextflow ≥ 23.04
 - Java 17+
-- `wget`, `curl`, `md5sum` (available on most Linux systems)
 - `fastqc`, `multiqc` (only needed if using `--fastqc`)
 
 
