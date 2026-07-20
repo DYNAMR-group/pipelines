@@ -93,8 +93,8 @@ fastqc/                    (only if --fastqc)
 
 ## What it does
 
-1. **Query ENA** — fetches FASTQ URLs and MD5 checksums for each accession via the ENA Portal API
-2. **Download** — downloads each FASTQ file with `wget`, retrying up to 3 times on failure
+1. **Query ENA** — fetches FASTQ URLs for each accession via the ENA Portal API
+2. **Download** — downloads each FASTQ file with `wget`, retrying up to 3 times on failure and skips if still not found
 3. **Verify** — checks the MD5 checksum of every file; fails if there is a mismatch
 4. **Yield report** — counts reads and bases per sample and writes `yield_summary.tsv`
 5. **QC** *(optional)* — runs FastQC per file and aggregates with MultiQC
