@@ -2,7 +2,7 @@
 nextflow.enable.dsl = 2
 
 /*
- * ENA-FETCH — download FASTQ reads from ENA by accession
+ * ENA-FETCH — download FASTQ reads from ENA by accession numbers
  * (ERR/SRR/ERX/SRX/ERS/SRS/PRJ), verify checksums, and report
  * sequencing yield. Optional FastQC/MultiQC.
  *
