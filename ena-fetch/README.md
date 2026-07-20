@@ -5,7 +5,7 @@ Nextflow pipeline to download sequencing reads from the
 verify checksums, and report sequencing yield. Optionally runs FastQC and
 MultiQC on the downloaded reads.
 
-Part of the [DYNAMR](https://github.com/DYNAMR-group) pipeline collection at the
+Part of the [DYNAMR](https://github.com/DYNAMR-group/pipelines) pipeline collection at the
 Malawi Liverpool Wellcome Research Programme.
 
 ---
