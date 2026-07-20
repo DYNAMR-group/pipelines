@@ -31,7 +31,7 @@ Any accession type that maps to `read_run` entries in ENA.
 **Download reads**
 
 ```bash
-nextflow run DYNAMR-MLW26/pipelines \
+nextflow run DYNAMR-group[/pipelines \
   -main-script ena-fetch/main.nf \
   --accessions accessions.txt \
   --outdir ena_downloads
@@ -40,7 +40,7 @@ nextflow run DYNAMR-MLW26/pipelines \
 **Download reads + run FastQC and MultiQC**
 
 ```bash
-nextflow run DYNAMR-MLW26/pipelines \
+nextflow run DYNAMR-group/pipelines \
   -main-script ena-fetch/main.nf \
   --accessions accessions.txt \
   --outdir ena_downloads \
