@@ -1,0 +1,5 @@
+# Example accessions — one per line
+# Supports ERR, SRR, ERX, SRX, ERS, SRS, PRJ accession types
+# Lines starting with # are ignored
+ERR000001
+ERR000002
