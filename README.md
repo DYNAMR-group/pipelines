@@ -8,7 +8,7 @@ pipeline**.
 
 | Pipeline | Description |
 |----------|-------------|
-| [`DLBCL_Structural_Analysis`](DLBCL_Structural_Analysis) | Snakemake pipeline for DLBCL analysis |
+| [`DLBCL_Structural_Analysis`](DLBCL_Structural_Analysis) | A reproducible Snakemake pipeline for whole-exome sequencing (WES) analysis of Diffuse Large B-Cell Lymphoma (DLBCL), integrating quality control, alignment, somatic variant calling, annotation, variant prioritization, mutant protein generation, and structural characterization of pathogenic variants. |
 | [`ena-fetch`](ena-fetch) | Download FASTQ reads from ENA by accession, verify checksums, optional FastQC/MultiQC |
 | [`v-cholera-pipeline`](v_cholera_pipeline) | Run illumina read data |
 
