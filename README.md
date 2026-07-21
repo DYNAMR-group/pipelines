@@ -1,8 +1,8 @@
 # DYNAMR pipelines
 
-Nextflow pipelines maintained by the [DYNAMR](https://github.com/DYNAMR-group/dynamr)
-group at the Malawi Liverpool Wellcome Research Programme. One folder per
-pipeline.
+Bioinformatics pipelines maintained by the [DYNAMR](https://github.com/DYNAMR-group/dynamr)
+group at the Malawi Liverpool Wellcome Research Programme. **One folder per
+pipeline**.
 
 ## Pipelines
 
@@ -15,6 +15,5 @@ pipeline.
 ## Adding a pipeline
 
 1. Create a folder named after your pipeline
-2. Add `main.nf`, `nextflow.config`, and a `README.md`
-3. Include `nextflow.config`
-4. Open a pull request
+2. Add your source files and a `README.md`
+3. Open a pull request
