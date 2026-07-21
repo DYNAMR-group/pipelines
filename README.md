@@ -8,6 +8,7 @@ pipeline.
 
 | Pipeline | Description |
 |----------|-------------|
+| [`DLBCL_Structural_Analysis`](DLBCL_Structural_Analysis) | Snakemake pipeline for DLBCL analysis |
 | [`ena-fetch`](ena-fetch) | Download FASTQ reads from ENA by accession, verify checksums, optional FastQC/MultiQC |
 | [`v-cholera-pipeline`](v_cholera_pipeline) | Run illumina read data |
 
