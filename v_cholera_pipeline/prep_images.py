@@ -5,7 +5,7 @@ Container bootstrap script.
 
 Checks for an existing Singularity/Apptainer image.
 If missing:
-    - clones repository containing a Dockerfile
+    - clones repository containing a Dockerfile or singularity image
     - builds an Apptainer/Singularity image directly from that Dockerfile
     - stores the image locally (HPC)
 """
@@ -88,6 +88,22 @@ def find_container_builder():
         "Neither apptainer nor singularity found"
     )
 
+
+def patch_dockerfile_for_https(dockerfile_path: Path):
+    """Rewrite FTP URLs in a Dockerfile to HTTPS when possible."""
+    if not dockerfile_path.exists():
+        return False
+
+    original_text = dockerfile_path.read_text(encoding="utf-8")
+    updated_text = original_text.replace("ftp://", "https://")
+
+    if updated_text != original_text:
+        dockerfile_path.write_text(updated_text, encoding="utf-8")
+        logging.info("Updated Dockerfile URLs to HTTPS: %s", dockerfile_path)
+        return True
+
+    return False
+
 # Main
 
 def main():
@@ -96,9 +112,9 @@ def main():
     )
 
     parser.add_argument("--repo", default=repo_url, help="Git repository to clone")
+    parser.add_argument("--image-file", default=)
     parser.add_argument("--image-name", default=image_name, help="Output image file name (e.g. vista.sif)")
     parser.add_argument("--out-dir", default=str(container_dir), help="Directory to place the image")
-    parser.add_argument("--docker-tag", default="local_build:latest", help="Optional Docker tag for fallback builds only")
     parser.add_argument("--dry-run", action="store_true", help="Show commands without executing them")
 
     args = parser.parse_args()
@@ -133,29 +149,17 @@ def main():
         run_command(["git", "clone", args.repo, str(source_dir)], dry_run=args.dry_run)
 
         dockerfile = source_dir / "Dockerfile"
+        singularity_file = source_dir / ""
 
         if not dockerfile.exists():
             raise FileNotFoundError(f"Dockerfile not found: {dockerfile}")
 
         logging.info("Dockerfile found: %s", dockerfile)
+        patch_dockerfile_for_https(dockerfile)
 
         logging.info("Building %s directly from Dockerfile using %s", container_image, builder)
         build_spec = f"buildkit://{source_dir}"
-
-        try:
-            run_command([builder, "build", str(container_image), build_spec], dry_run=args.dry_run)
-        except subprocess.CalledProcessError as exc:
-            if shutil.which("docker"):
-                logging.warning("Direct build failed; falling back to a Docker daemon build")
-                docker_tag = args.docker_tag
-
-                logging.info("Building temporary Docker image: %s", docker_tag)
-                run_command(["docker", "build", "-t", docker_tag, str(source_dir)], dry_run=args.dry_run)
-
-                logging.info("Converting Docker image to %s using %s", container_image, builder)
-                run_command([builder, "build", str(container_image), f"docker-daemon://{docker_tag}"], dry_run=args.dry_run)
-            else:
-                raise exc
+        run_command([builder, "build", str(container_image), build_spec], dry_run=args.dry_run)
 
     # Validate
     if not container_image.exists() and not args.dry_run:
